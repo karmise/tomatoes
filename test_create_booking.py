@@ -1,7 +1,7 @@
-from constants import HEADERS, BASE_URL
+from constants import BASE_URL
 
 
-class TestBookings:
+class TestCreateBookings:
     def test_create_booking(self, auth_session, booking_data):
 
         create_booking = auth_session.post(f"{BASE_URL}/booking", json=booking_data)
@@ -14,7 +14,7 @@ class TestBookings:
 
         get_booking = auth_session.get(f"{BASE_URL}/booking/{booking_id}")
         assert get_booking.status_code == 200, "Бронь не найдена"
-        assert get_booking. json()["lastname"] == booking_data["lastname"], "Заданная фамилия не совпадает"
+        assert get_booking.json()["lastname"] == booking_data["lastname"], "Заданная фамилия не совпадает"
 
         deleted_booking = auth_session.delete(f"{BASE_URL}/booking/{booking_id}")
         assert deleted_booking.status_code == 201, "Бронь не найдена"

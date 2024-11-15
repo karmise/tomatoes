@@ -6,6 +6,7 @@ from constants import HEADERS, BASE_URL
 
 faker = Faker()
 
+
 @pytest.fixture(scope="session")
 def auth_session():
     session = requests.Session()
