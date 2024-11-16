@@ -6,7 +6,7 @@ class TestGetBookings:
 
         get_booking = auth_session.get(f"{BASE_URL}/booking")
         assert get_booking.status_code == 200, "Ошибка при получении всех броней"
-        assert len(get_booking.json()) > 1, "Количество броней меньше одной"
+        assert len(get_booking.json()) > 0, "Общее количество броней равно 0"
 
     def test_get_booking_by_wrong_firstname(self, auth_session):
         auth_session.params = {"firstname": "wrong_namehaha092$$"}
