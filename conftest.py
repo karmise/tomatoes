@@ -34,3 +34,12 @@ def booking_data():
             },
             "additionalneeds": "Breakfast"
         }
+
+
+@pytest.fixture()
+def booking_id_for_test(auth_session, booking_data):
+    create_booking = auth_session.post(f"{BASE_URL}/booking", json=booking_data)
+    assert create_booking.status_code == 200, "Ошибка при создании брони"
+    booking_id = create_booking.json().get("bookingid")
+    assert booking_id is not None, "Идентификатор брони не найден в ответе"
+    return booking_id
