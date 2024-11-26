@@ -9,7 +9,6 @@ class LoginPage(BasePage):
     USERNAME_SELECTOR = '#user-name'
     PASSWORD_SELECTOR = '#password'
     LOGIN_BUTTON_SELECTOR = '#login-button'
-    ERROR_LOGIN_SELECTOR = '[data-test="error"]'
 
     def correct_login(self, username, password):
         self.navigate_to()

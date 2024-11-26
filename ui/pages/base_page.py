@@ -4,6 +4,8 @@ from playwright.sync_api import expect
 class BasePage:
     __BASE_URL = 'https://www.saucedemo.com'
 
+    ERROR_SELECTOR = '[data-test="error"]'
+
     def __init__(self, page):
         self.page = page
         self._endpoint = ''
