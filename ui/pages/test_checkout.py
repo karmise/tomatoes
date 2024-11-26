@@ -12,7 +12,7 @@ def test_checkout_product(browser):
     checkout_page = CheckoutPage(page)
     burger_menu = BurgerMenu(page)
 
-    login_page.login('standard_user', 'secret_sauce')
+    login_page.correct_login('standard_user', 'secret_sauce')
     inventory_page.add_first_item_to_cart()
     checkout_page.start_checkout()
     checkout_page.fill_checkout_form('John', 'Doe', '12345')

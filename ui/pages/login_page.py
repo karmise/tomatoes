@@ -9,10 +9,17 @@ class LoginPage(BasePage):
     USERNAME_SELECTOR = '#user-name'
     PASSWORD_SELECTOR = '#password'
     LOGIN_BUTTON_SELECTOR = '#login-button'
+    ERROR_LOGIN_SELECTOR = '[data-test="error"]'
 
-    def login(self, username, password):
+    def correct_login(self, username, password):
         self.navigate_to()
         self.wait_for_selector_and_fill(self.USERNAME_SELECTOR, username)
         self.wait_for_selector_and_fill(self.PASSWORD_SELECTOR, password)
         self.wait_for_selector_and_click(self.LOGIN_BUTTON_SELECTOR)
         self.assert_text_present_on_page('Products')
+
+    def login_with_problems(self, username, password):
+        self.navigate_to()
+        self.wait_for_selector_and_fill(self.USERNAME_SELECTOR, username)
+        self.wait_for_selector_and_fill(self.PASSWORD_SELECTOR, password)
+        self.wait_for_selector_and_click(self.LOGIN_BUTTON_SELECTOR)
